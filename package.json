@@ -1,0 +1,15 @@
+{
+  "name": "simple-image-watermarking-web",
+  "version": "1.0.0",
+  "description": "Image Watermarking",
+  "main": "index.js",
+  "repository": "https://github.com/bervProject/simple-image-watermarking-web.git",
+  "author": "Bervianto Leo Pratama <bervianto.leo@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "opencv4nodejs": "^5.5.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
