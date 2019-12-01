@@ -3,3 +3,5 @@ services:
 
 script:
   - docker build -t berviantoleo/siwb .
+  - docker run -d berviantoleo/siwb
+  - docker ps -a
