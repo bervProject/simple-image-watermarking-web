@@ -1,2 +1,2 @@
 # simple-image-watermarking-web
-Simple Website to Bring Hidden Watermak into an Image
+Simple Website to Bring Hidden Watermark into an Image
