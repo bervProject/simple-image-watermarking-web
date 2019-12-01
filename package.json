@@ -7,7 +7,8 @@
   "author": "Bervianto Leo Pratama <bervianto.leo@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "opencv4nodejs": "^5.5.0"
+    "opencv4nodejs": "^5.5.0",
+    "restify": "^8.4.1"
   },
   "scripts": {
     "start": "node index.js"
