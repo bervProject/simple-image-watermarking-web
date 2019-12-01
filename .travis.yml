@@ -2,6 +2,6 @@ services:
   - docker
 
 script:
-  - docker build -t berviantoleo/siwb .
+  - travis_wait 30 docker build -t berviantoleo/siwb .
   - docker run -d berviantoleo/siwb
   - docker ps -a
