@@ -1,4 +1,5 @@
 const restify = require('restify');
+const port = process.env.PORT || 8888;
 const embedFunction = require('./embed');
 const decodeFunction = require('./decode');
 
@@ -37,6 +38,6 @@ server.use(restify.plugins.bodyParser());
 server.post('/api/embed', embed);
 server.post('/api/extract', extract);
 
-server.listen(8888, () => {
+server.listen(port, () => {
   console.log('%s listening at %s', server.name, server.url);
 });
