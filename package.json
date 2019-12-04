@@ -8,7 +8,8 @@
   "license": "MIT",
   "dependencies": {
     "opencv4nodejs": "^5.5.0",
-    "restify": "^8.4.1"
+    "restify": "^8.4.1",
+    "restify-cors-middleware": "^1.1.1"
   },
   "scripts": {
     "start": "node src/index.js"

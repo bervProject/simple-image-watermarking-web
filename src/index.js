@@ -1,7 +1,9 @@
 const restify = require('restify');
-const port = process.env.PORT || 8888;
+const corsMiddleware = require('restify-cors-middleware');
 const embedFunction = require('./embed');
 const decodeFunction = require('./decode');
+
+const port = process.env.PORT || 8888;
 
 function embed(req, res, next) {
   let file = req.files['file'];
@@ -31,9 +33,15 @@ function extract(req, res, next) {
   });
 }
 
+const cors = corsMiddleware({
+  origins: ['https://siwb-ui.onrender.com', 'http://localhost:8080']
+});
+
 const server = restify.createServer({
   strictFormatters: false
 });
+server.pre(cors.preflight);
+server.use(cors.actual);
 server.use(restify.plugins.bodyParser());
 server.post('/api/embed', embed);
 server.post('/api/extract', extract);
