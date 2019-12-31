@@ -590,10 +590,10 @@ restify-cors-middleware@^1.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-restify-errors@^8.0.0:
-  version "8.0.1"
-  resolved "https://registry.npmjs.org/restify-errors/-/restify-errors-8.0.1.tgz#9f970cb16afad652379b49b4d6a666f7426c2b92"
-  integrity sha512-EFQpxS828J0SBTNuJjh+rHD0OE8BoqnaxMAzuKHRNnGt5BV/212HHQIelZG4zjZYpTDEiuVAhQYHwSGSzAz0Ag==
+restify-errors@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/restify-errors/-/restify-errors-8.0.2.tgz#0b9678738e37888e4fefe52aa6ee92771ec954e9"
+  integrity sha512-UsXUVQo7M26xoQzeUcZQ0+H8L2t9DGzrXcAgR3WB/1vnbl+UdI4tZ1PqYsN+sS5WnqHKZ0Xy9w0CKf83bbrwYA==
   dependencies:
     "@netflix/nerror" "^1.0.0"
     assert-plus "^1.0.0"
@@ -601,10 +601,10 @@ restify-errors@^8.0.0:
   optionalDependencies:
     safe-json-stringify "^1.0.4"
 
-restify@^8.4.1:
-  version "8.4.1"
-  resolved "https://registry.npmjs.org/restify/-/restify-8.4.1.tgz#a929e96f96474b69f1e81be1cf7de05c68ba1f64"
-  integrity sha512-6bt/yTYajZktwuoiJBQiDGXvDkKICDA0aXzUUAf3R6W+8ra5YSe0RScIz9EzihOIeThIaB0JXo0DBZ34rcabsA==
+restify@^8.5.1:
+  version "8.5.1"
+  resolved "https://registry.yarnpkg.com/restify/-/restify-8.5.1.tgz#1cbab41ef6a0990e7abac62a5b12182f591c1a0c"
+  integrity sha512-g+xciouvSDg2vmCZuCinztt2mvQynCfnGIE1y8vMjfcUrjBo4AP8DJ9RNheu0mdGpiI0cMoCHYA/GdZ3TEW+DA==
   dependencies:
     assert-plus "^1.0.0"
     bunyan "^1.8.12"
@@ -621,7 +621,7 @@ restify@^8.4.1:
     once "^1.4.0"
     pidusage "^2.0.17"
     qs "^6.7.0"
-    restify-errors "^8.0.0"
+    restify-errors "^8.0.2"
     semver "^6.1.1"
     send "^0.16.2"
     spdy "^4.0.0"
