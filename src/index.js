@@ -13,10 +13,10 @@ function embed(req, res, next) {
     res.contentLength = Buffer.byteLength(data);
     res.contentType = 'image/png';
     res.send(data);
-    next();
+    return next();
   }).catch(err => {
     res.send(err);
-    next();
+    return next(err);
   });
 }
 
@@ -27,9 +27,10 @@ function extract(req, res, next) {
     res.contentLength = Buffer.byteLength(data);
     res.contentType = 'text/plain';
     res.send(data);
+    return next();
   }).catch((err) => {
     res.send(err);
-    next();
+    return next(err);
   });
 }
 
@@ -43,6 +44,12 @@ const server = restify.createServer({
 server.pre(cors.preflight);
 server.use(cors.actual);
 server.use(restify.plugins.bodyParser());
+server.use(restify.plugins.throttle({
+  burst: 10,
+  rate: 1,
+  ip: true,
+  setHeaders: true
+}));
 server.post('/api/embed', embed);
 server.post('/api/extract', extract);
 
