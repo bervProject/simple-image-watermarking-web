@@ -7,7 +7,7 @@
   "author": "Bervianto Leo Pratama <bervianto.leo@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "opencv4nodejs": "^5.5.0",
+    "opencv4nodejs": "^5.6.0",
     "restify": "^8.5.1",
     "restify-cors-middleware": "^1.1.1"
   },
