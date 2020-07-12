@@ -4,6 +4,11 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import multer from 'multer';
 import responseTime from 'response-time';
+import morgan from 'morgan';
+import helmet from 'helmet';
+
+import rateLimit from './middleware/rate-limit';
+
 import embedFunction from './embed';
 import decodeFunction from './decode';
 
@@ -12,8 +17,11 @@ const port = process.env.PORT || 8888;
 function embed(req: Request, res: Response, next: any) {
   let file = req.file;
   let message = req.body.message;
+  if (!file) {
+    res.sendStatus(400);
+    return;
+  }
   let filePath = file.path;
-
   if (!filePath) {
     res.sendStatus(400);
     return next();
@@ -35,6 +43,10 @@ function embed(req: Request, res: Response, next: any) {
 
 function extract(req: Request, res: Response, next: any) {
   let file = req.file;
+  if (!file) {
+    res.sendStatus(400);
+    return;
+  }
   let filePath = file.path;
   if (!filePath) {
     res.sendStatus(400);
@@ -57,10 +69,13 @@ const corsOptions = {
 
 var upload = multer({ dest: 'uploads/' });
 
-const server = express()
+const server = express();
+server.use(helmet());
 server.use(cors(corsOptions));
+server.use(rateLimit);
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(responseTime());
+server.use(morgan('combined'));
 server.post('/api/embed', upload.single('file'), embed);
 server.post('/api/extract', upload.single('file'), extract);
 
