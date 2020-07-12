@@ -36,6 +36,10 @@ function embed(req: Request, res: Response, next: any) {
 function extract(req: Request, res: Response, next: any) {
   let file = req.file;
   let filePath = file.path;
+  if (!filePath) {
+    res.sendStatus(400);
+    return next();
+  }
   decodeFunction(filePath).then((data: any) => {
     res.contentType('text/plain');
     res.send(data);

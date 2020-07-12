@@ -24,23 +24,26 @@ function embed(filename: string, mytext: string): Promise<any> {
           i += 1;
         }
         if (i < totalData) {
-          this.bitmap.data[idx + 1] = green & ~1 | parseInt(myData[i]);
+          let result = green & ~1 | parseInt(myData[i]);
+          this.bitmap.data[idx + 1] = result;
           i += 1;
         }
         if (i < totalData) {
-          this.bitmap.data[idx + 2] = blue & ~1 | parseInt(myData[i]);
+          let result = blue & ~1 | parseInt(myData[i]);
+          this.bitmap.data[idx + 2] = result;
+          i += 1;
         }
-
-      });
-      //const distance = jimp.diff(image, origImage);
-      //console.log(distance.percent);
-      image.getBufferAsync(image.getMIME()).then(data => {
-        resolve({
-          data,
-          type: image.getMIME()
-        });
-      }).catch(err => {
-        reject(err);
+        if (x == image.bitmap.width - 1 && y == image.bitmap.height - 1) {
+          // image scan finished, do your stuff
+          this.getBufferAsync(image.getMIME()).then(data => {
+            resolve({
+              data,
+              type: image.getMIME()
+            });
+          }).catch(err => {
+            reject(err);
+          });
+        }
       });
     }).catch((err: Error) => {
       reject(err);
