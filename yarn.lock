@@ -340,10 +340,24 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/helmet@^0.0.47":
+  version "0.0.47"
+  resolved "https://registry.npmjs.org/@types/helmet/-/helmet-0.0.47.tgz#ec5161541b649142205b7c558bca14801c5ce129"
+  integrity sha512-TcHA/djjdUtrMtq/QAayVLrsgjNNZ1Uhtz0KhfH01mrmjH44E54DA1A0HNbwW0H/NBFqV+tGMo85ACuEhMXcdg==
+  dependencies:
+    "@types/express" "*"
+
 "@types/mime@*":
   version "2.0.2"
   resolved "https://registry.npmjs.org/@types/mime/-/mime-2.0.2.tgz#857a118d8634c84bba7ae14088e4508490cd5da5"
   integrity sha512-4kPlzbljFcsttWEq6aBW0OZe6BDajAmyvr2xknBG92tejQnvdGtT9+kXSZ580DqpxY9qG2xeQVF9Dq0ymUTo5Q==
+
+"@types/morgan@^1.9.1":
+  version "1.9.1"
+  resolved "https://registry.npmjs.org/@types/morgan/-/morgan-1.9.1.tgz#6457872df95647c1dbc6b3741e8146b71ece74bf"
+  integrity sha512-2j5IKrgJpEP6xw/uiVb2Xfga0W0sSVD9JP9t7EZLvpBENdB0OKgcnoKS8IsjNeNnZ/86robdZ61Orl0QCFGOXg==
+  dependencies:
+    "@types/node" "*"
 
 "@types/multer@^1.4.3":
   version "1.4.3"

@@ -4,6 +4,22 @@
 
 Simple Website to Bring Hidden Watermark into an Image
 
+Version: 2.0.0
+
+## Version History
+
+### 2.0.0
+
+* Migrate to Typescript (from js)
+* Migrate to Express (from Restify)
+* Migrate to Jimp (from OpenCV)
+
+### 1.0.0
+
+* Initial Publish
+* Use Restify
+* Use OpenCV
+
 ## Dependencies
 
 1. Express (Server)
