@@ -2,16 +2,28 @@
   "name": "simple-image-watermarking-web",
   "version": "1.0.0",
   "description": "Image Watermarking",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/bervProject/simple-image-watermarking-web.git",
   "author": "Bervianto Leo Pratama <bervianto.leo@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "opencv4nodejs": "^5.6.0",
-    "restify": "^8.5.1",
-    "restify-cors-middleware": "^1.1.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jimp": "^0.14.0",
+    "multer": "^1.4.2",
+    "response-time": "^2.3.2"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.7",
+    "@types/multer": "^1.4.3",
+    "@types/response-time": "^2.3.4",
+    "ts-node-dev": "^1.0.0-pre.51",
+    "typescript": "^3.9.6"
   }
 }
