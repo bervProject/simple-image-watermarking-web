@@ -36,6 +36,6 @@
     "@types/multer": "^1.4.3",
     "@types/response-time": "^2.3.4",
     "ts-node-dev": "^1.0.0-pre.52",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   }
 }
