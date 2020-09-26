@@ -6,9 +6,9 @@ Version: 2.0.0
 
 ## Build Status
 
-| Travis | Github Action (Docker) |
-|:------:|:----------------------:|
-| [![Build Status](https://travis-ci.com/bervProject/simple-image-watermarking-web.svg?branch=master)](https://travis-ci.com/bervProject/simple-image-watermarking-web) | ![Docker](https://github.com/bervProject/simple-image-watermarking-web/workflows/Docker/badge.svg) |
+| Travis | Github Action (Docker) | Coverage |
+|:------:|:----------------------:|:--------:|
+| [![Build Status](https://travis-ci.com/bervProject/simple-image-watermarking-web.svg?branch=master)](https://travis-ci.com/bervProject/simple-image-watermarking-web) | ![Docker](https://github.com/bervProject/simple-image-watermarking-web/workflows/Docker/badge.svg) | [![codecov](https://codecov.io/gh/bervProject/simple-image-watermarking-web/branch/master/graph/badge.svg)](https://codecov.io/gh/bervProject/simple-image-watermarking-web) |
 
 ## Version History
 
