@@ -1,5 +1,4 @@
 .travis.yml
 heroku.yml
 jest.config.js
-output.txt
 sample/
