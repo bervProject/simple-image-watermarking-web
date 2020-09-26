@@ -1,6 +1,6 @@
 {
   "name": "simple-image-watermarking-web",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Image Watermarking",
   "main": "dist/index.js",
   "repository": "https://github.com/bervProject/simple-image-watermarking-web.git",
