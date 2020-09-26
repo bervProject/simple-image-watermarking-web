@@ -2,5 +2,4 @@
 heroku.yml
 jest.config.js
 output.txt
-tsconfig.json
 sample/
