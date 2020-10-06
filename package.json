@@ -39,7 +39,7 @@
     "@types/response-time": "^2.3.4",
     "@types/supertest": "^2.0.10",
     "cross-env": "^7.0.2",
-    "jest": "^26.4.2",
+    "jest": "^26.5.2",
     "supertest": "^5.0.0",
     "ts-jest": "^26.4.1",
     "ts-node-dev": "^1.0.0-pre.63",
