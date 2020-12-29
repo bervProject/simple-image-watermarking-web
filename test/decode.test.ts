@@ -4,10 +4,10 @@ import fs from 'fs';
 
 describe('Sample Test', () => {
   it('the decode should be successfully', async () => {
-    var result = await embed('sample/cat_png.png', 'this-is-my-word');
-    expect(result.type).toMatch("image/png");
+    const result = await embed('sample/cat_png.png', 'this-is-my-word');
+    expect(result.type).toMatch('image/png');
     fs.writeFileSync('output.png', result.data);
-    var newResult = await decode('output.png');
+    const newResult = await decode('output.png');
     expect(newResult).toContain('this-is-my-word');
-  })
-})
+  });
+});

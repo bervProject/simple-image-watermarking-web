@@ -15,13 +15,13 @@ import decodeFunction from './decode';
 const port = process.env.PORT || 8888;
 
 function embed(req: Request, res: Response, next: any) {
-  let file = req.file;
-  let message = req.body.message;
+  const file = req.file;
+  const message = req.body.message;
   if (!file) {
     res.sendStatus(400);
     return;
   }
-  let filePath = file.path;
+  const filePath = file.path;
   if (!filePath) {
     res.sendStatus(400);
     return next();
@@ -31,43 +31,46 @@ function embed(req: Request, res: Response, next: any) {
     return next();
   }
 
-  embedFunction(filePath, message).then((data: any) => {
-    res.contentType(data.type)
-    res.send(data.data);
-    return next();
-  }).catch((err: Error) => {
-    res.send(err);
-    return next(err);
-  });
+  embedFunction(filePath, message)
+    .then((data: any) => {
+      res.contentType(data.type);
+      res.send(data.data);
+      return next();
+    })
+    .catch((err: Error) => {
+      res.send(err);
+      return next(err);
+    });
 }
 
 function extract(req: Request, res: Response, next: any) {
-  let file = req.file;
+  const file = req.file;
   if (!file) {
     res.sendStatus(400);
     return;
   }
-  let filePath = file.path;
+  const filePath = file.path;
   if (!filePath) {
     res.sendStatus(400);
     return next();
   }
-  decodeFunction(filePath).then((data: any) => {
-    res.contentType('text/plain');
-    res.send(data);
-    return next();
-  }).catch((err: Error) => {
-    res.send(err);
-    return next(err);
-  });
+  decodeFunction(filePath)
+    .then((data: any) => {
+      res.contentType('text/plain');
+      res.send(data);
+      return next();
+    })
+    .catch((err: Error) => {
+      res.send(err);
+      return next(err);
+    });
 }
 
-
 const corsOptions = {
-  origin: 'https://siwb-ui.onrender.com'
+  origin: 'https://siwb-ui.onrender.com',
 };
 
-var upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: 'uploads/' });
 
 const server = express();
 server.use(helmet());

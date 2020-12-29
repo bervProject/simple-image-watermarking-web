@@ -26,6 +26,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
+    "lint": "eslint src/**/*.{js,ts} test/**/*.{js,ts} --quiet --fix",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "test": "cross-env NODE_ENV=test jest --testTimeout=60000 --coverage"
   },
@@ -38,8 +39,14 @@
     "@types/multer": "^1.4.5",
     "@types/response-time": "^2.3.4",
     "@types/supertest": "^2.0.10",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
     "cross-env": "^7.0.3",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
     "jest": "^26.6.3",
+    "prettier": "^2.2.1",
     "supertest": "^6.0.1",
     "ts-jest": "^26.4.4",
     "ts-node-dev": "^1.1.1",
