@@ -1,11 +1,17 @@
 import { RateLimiterMemory } from 'rate-limiter-flexible';
+import { NextFunction, Request, Response } from 'express';
 
 const rateLimiter = new RateLimiterMemory({
   points: 10, // 10 requests
   duration: 1, // per 1 second by IP
 });
 
-const rateLimiterMiddleware = (req: any, res: any, next: any) => {
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+const rateLimiterMiddleware = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): void => {
   rateLimiter
     .consume(req.ip)
     .then(() => {

@@ -1,5 +1,10 @@
 import jimp from 'jimp';
 
+export interface EmbedData {
+  data: Buffer;
+  type: string;
+}
+
 function text2Binary(text: string): string {
   return text
     .split('')
@@ -9,7 +14,7 @@ function text2Binary(text: string): string {
     .join('');
 }
 
-function embed(filename: string, mytext: string): Promise<any> {
+function embed(filename: string, mytext: string): Promise<EmbedData> {
   return new Promise((resolve, reject) => {
     jimp
       .read(filename)

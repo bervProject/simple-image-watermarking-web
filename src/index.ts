@@ -1,5 +1,5 @@
 import express from 'express';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import multer from 'multer';
@@ -9,12 +9,12 @@ import helmet from 'helmet';
 
 import rateLimit from './middleware/rate-limit';
 
-import embedFunction from './embed';
+import embedFunction, { EmbedData } from './embed';
 import decodeFunction from './decode';
 
 const port = process.env.PORT || 8888;
 
-function embed(req: Request, res: Response, next: any) {
+function embed(req: Request, res: Response, next: NextFunction) {
   const file = req.file;
   const message = req.body.message;
   if (!file) {
@@ -32,7 +32,7 @@ function embed(req: Request, res: Response, next: any) {
   }
 
   embedFunction(filePath, message)
-    .then((data: any) => {
+    .then((data: EmbedData) => {
       res.contentType(data.type);
       res.send(data.data);
       return next();
@@ -43,7 +43,7 @@ function embed(req: Request, res: Response, next: any) {
     });
 }
 
-function extract(req: Request, res: Response, next: any) {
+function extract(req: Request, res: Response, next: NextFunction) {
   const file = req.file;
   if (!file) {
     res.sendStatus(400);
@@ -55,7 +55,7 @@ function extract(req: Request, res: Response, next: any) {
     return next();
   }
   decodeFunction(filePath)
-    .then((data: any) => {
+    .then((data: string) => {
       res.contentType('text/plain');
       res.send(data);
       return next();
