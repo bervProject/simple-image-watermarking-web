@@ -71,10 +71,3 @@ function embed(filename: string, mytext: string): Promise<EmbedData> {
 }
 
 export default embed;
-
-/*
-embed('./example.jpg', 'Hi, Lita! How are you today? I hope you fine. I want to tell you something, but I little affraid to tell it. I want to tell in another message. Have a nice day, Lita!').then((data) => {
-  console.log(data);
-}).catch(err => {
-  console.log(err);
-});*/

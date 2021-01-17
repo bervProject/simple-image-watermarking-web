@@ -90,3 +90,5 @@ server.post('/api/extract', upload.single('file'), extract);
 server.listen(port, () => {
   console.log('%s listening at %s', server.name, port);
 });
+
+export default server;
