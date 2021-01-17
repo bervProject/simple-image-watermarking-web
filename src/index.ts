@@ -87,8 +87,8 @@ server.use(morgan('combined'));
 server.post('/api/embed', upload.single('file'), embed);
 server.post('/api/extract', upload.single('file'), extract);
 
-server.listen(port, () => {
+const appServer = server.listen(port, () => {
   console.log('%s listening at %s', server.name, port);
 });
 
-export default server;
+export default appServer;

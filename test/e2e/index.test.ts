@@ -38,3 +38,7 @@ describe('POST /api/extract', function () {
     request(app).post('/api/extract').expect(400, done);
   });
 });
+
+afterAll(() => {
+  app.close();
+});
