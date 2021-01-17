@@ -70,7 +70,12 @@ const corsOptions = {
   origin: 'https://siwb-ui.onrender.com',
 };
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({
+  dest: 'uploads/',
+  limits: {
+    fileSize: 8000000,
+  },
+});
 
 const server = express();
 server.use(helmet());
