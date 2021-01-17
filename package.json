@@ -26,7 +26,8 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
-    "lint": "eslint src/**/*.{js,ts} test/**/*.{js,ts} --quiet --fix",
+    "lint": "eslint src/**/*.{js,ts} test/**/*.{js,ts} --quiet",
+    "fix-lint": "eslint src/**/*.{js,ts} test/**/*.{js,ts} --quiet --fix",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "test": "cross-env NODE_ENV=test jest --testTimeout=60000 --coverage"
   },
