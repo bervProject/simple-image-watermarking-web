@@ -24,7 +24,7 @@
     "response-time": "^2.3.2"
   },
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node dist/",
     "build": "tsc",
     "lint": "eslint src/**/*.{js,ts} test/**/*.{js,ts} --quiet",
     "fix-lint": "eslint src/**/*.{js,ts} test/**/*.{js,ts} --quiet --fix",

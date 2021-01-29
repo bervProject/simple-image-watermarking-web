@@ -9,5 +9,4 @@ RUN yarn build
 FROM node:lts-alpine as runtime
 WORKDIR /usr/src/app
 COPY --from=build /usr/src/app .
-EXPOSE 8888
 CMD [ "yarn", "start" ]
