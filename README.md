@@ -6,9 +6,9 @@ Version: 2.0.0
 
 ## Build Status
 
-| Github Action (Node) | Github Action (Docker) | Coverage |
-|:------:|:----------------------:|:--------:|
-| ![Node.js CI](https://github.com/bervProject/simple-image-watermarking-web/workflows/Node.js%20CI/badge.svg) | ![Docker](https://github.com/bervProject/simple-image-watermarking-web/workflows/Docker/badge.svg) | [![codecov](https://codecov.io/gh/bervProject/simple-image-watermarking-web/branch/master/graph/badge.svg)](https://codecov.io/gh/bervProject/simple-image-watermarking-web) |
+| Github Action | Coverage |
+|:-------------:|:--------:|
+| ![Node.js CI](https://github.com/bervProject/simple-image-watermarking-web/workflows/Node.js%20CI/badge.svg) | [![codecov](https://codecov.io/gh/bervProject/simple-image-watermarking-web/branch/master/graph/badge.svg)](https://codecov.io/gh/bervProject/simple-image-watermarking-web) |
 
 ## Version History
 
