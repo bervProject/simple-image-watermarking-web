@@ -32,7 +32,7 @@
     "test": "cross-env NODE_ENV=test jest --testTimeout=60000 --coverage --forceExit --detectOpenHandles"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.9",
+    "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
     "@types/helmet": "^4.0.0",
     "@types/jest": "^26.0.20",
