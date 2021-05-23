@@ -1,7 +1,6 @@
 import express from 'express';
 import { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import bodyParser from 'body-parser';
 import multer from 'multer';
 import responseTime from 'response-time';
 import morgan from 'morgan';
@@ -18,19 +17,18 @@ function embed(req: Request, res: Response, next: NextFunction) {
   const file = req.file;
   const message = req.body.message;
   if (!file) {
-    res.sendStatus(400);
+    res.status(400).send({
+      message: 'File request is missing',
+    });
+    return;
+  }
+  if (!message) {
+    res.status(400).send({
+      message: 'Message request is missing',
+    });
     return;
   }
   const filePath = file.path;
-  if (!filePath) {
-    res.sendStatus(400);
-    return next();
-  }
-  if (!message) {
-    res.sendStatus(400);
-    return next();
-  }
-
   embedFunction(filePath, message)
     .then((data: EmbedData) => {
       res.contentType(data.type);
@@ -46,14 +44,12 @@ function embed(req: Request, res: Response, next: NextFunction) {
 function extract(req: Request, res: Response, next: NextFunction) {
   const file = req.file;
   if (!file) {
-    res.sendStatus(400);
+    res.status(400).send({
+      message: 'File request is missing',
+    });
     return;
   }
   const filePath = file.path;
-  if (!filePath) {
-    res.sendStatus(400);
-    return next();
-  }
   decodeFunction(filePath)
     .then((data: string) => {
       res.contentType('text/plain');
@@ -64,6 +60,14 @@ function extract(req: Request, res: Response, next: NextFunction) {
       res.send(err);
       return next(err);
     });
+}
+
+function home(
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction,
+) {
+  return res.send({ message: 'Welcome to SIWB!' });
 }
 
 const corsOptions = {
@@ -81,9 +85,10 @@ const server = express();
 server.use(helmet());
 server.use(cors(corsOptions));
 server.use(rateLimit);
-server.use(bodyParser.urlencoded({ extended: true }));
+server.use(express.urlencoded({ extended: true }));
 server.use(responseTime());
 server.use(morgan('combined'));
+server.get('/', home);
 server.post('/api/embed', upload.single('file'), embed);
 server.post('/api/extract', upload.single('file'), extract);
 
