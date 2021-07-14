@@ -90,9 +90,6 @@ jobs:
           heroku_app_name: "" #Must be unique in Heroku
           heroku_email: "bervianto.leo@gmail.com"
           justlogin: true
-      - name: Heroku Container Login
-        if: ${{ github.ref == 'refs/heads/master' }}
-        run: heroku container:login
       - name: Release container
         if: ${{ github.ref == 'refs/heads/master' }}
         run: heroku container:release web --app=${HEROKU_APP_NAME}
