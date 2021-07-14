@@ -25,10 +25,12 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install, Lint, Test & Build
+    - name: Install
+      run: yarn --frozen-lockfile
+    - name: Lint
+      run: yarn lint
+    - name: Test & Build
       run: |
-        yarn --frozen-lockfile
-        yarn lint
         yarn test
         yarn build
     - name: Upload to codecov
@@ -49,42 +51,49 @@ jobs:
     if: github.event_name == 'push'
     steps:
       - uses: actions/checkout@v2
-      - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME
-      - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
-      - name: Push image
-        run: |
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-      - uses: akhileshns/heroku-deploy@v3.10.9 # This is the action
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Log in to the Container registry Heroku
+        uses: docker/login-action@v1
+        with:
+          registry: registry.heroku.com
+          username: bervianto.leo@gmail.com
+          password: ${{ secrets.HEROKU_API_KEY }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: |
+            bervproject/${{ env.IMAGE_NAME }}
+            ghcr.io/${{ github.repository }}
+            registry.heroku.com/${{ env.HEROKU_APP_NAME }}/web
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "" #Must be unique in Heroku
           heroku_email: "bervianto.leo@gmail.com"
           justlogin: true
-      - name: Heroku Container Login & Update
+      - name: Heroku Container Login
         if: ${{ github.ref == 'refs/heads/master' }}
-        run: |
-          heroku update
-          heroku container:login
-      - name: Push image & Release
+        run: heroku container:login
+      - name: Release container
         if: ${{ github.ref == 'refs/heads/master' }}
-        run: |
-          HEROKU_IMAGE=registry.heroku.com/$HEROKU_APP_NAME/web
-          docker tag $IMAGE_NAME $HEROKU_IMAGE
-          docker push $HEROKU_IMAGE
-          heroku container:release web --app=${HEROKU_APP_NAME}
+        run: heroku container:release web --app=${HEROKU_APP_NAME}
 
