@@ -3,11 +3,11 @@
 name: Node.js CI
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     tags:
       - v*
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 env:
   # TODO: Change variable to your image's name.
   IMAGE_NAME: siwb
@@ -91,6 +91,6 @@ jobs:
           heroku_email: "bervianto.leo@gmail.com"
           justlogin: true
       - name: Release container
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: heroku container:release web --app=${HEROKU_APP_NAME}
 
