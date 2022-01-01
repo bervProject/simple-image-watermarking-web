@@ -1,10 +1,4 @@
 version: 2
-registries:
-  npm-registry-npm-pkg-github-com:
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    username: "${{secrets.NPM_REGISTRY_NPM_PKG_GITHUB_COM_USERNAME}}"
-    password: "${{secrets.NPM_REGISTRY_NPM_PKG_GITHUB_COM_PASSWORD}}"
 
 updates:
 - package-ecosystem: npm
@@ -15,9 +9,3 @@ updates:
     time: "08:00"
     timezone: Asia/Jakarta
   open-pull-requests-limit: 100
-  ignore:
-  - dependency-name: eslint-config-prettier
-    versions:
-    - 8.1.0
-  registries:
-  - npm-registry-npm-pkg-github-com
