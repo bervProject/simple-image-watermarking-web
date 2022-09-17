@@ -11,7 +11,6 @@ on:
 env:
   # TODO: Change variable to your image's name.
   IMAGE_NAME: siwb
-  HEROKU_APP_NAME: siwb
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -62,12 +61,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Log in to the Container registry Heroku
-        uses: docker/login-action@v1
-        with:
-          registry: registry.heroku.com
-          username: bervianto.leo@gmail.com
-          password: ${{ secrets.HEROKU_API_KEY }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v3
@@ -75,7 +68,6 @@ jobs:
           images: |
             bervproject/${{ env.IMAGE_NAME }}
             ghcr.io/${{ github.repository }}
-            registry.heroku.com/${{ env.HEROKU_APP_NAME }}/web
       - name: Build and push Docker images
         uses: docker/build-push-action@v2
         with:
@@ -83,14 +75,4 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        if: ${{ github.ref == 'refs/heads/master' }}
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "" #Must be unique in Heroku
-          heroku_email: "bervianto.leo@gmail.com"
-          justlogin: true
-      - name: Release container
-        if: ${{ github.ref == 'refs/heads/main' }}
-        run: heroku container:release web --app=${HEROKU_APP_NAME}
 
