@@ -32,8 +32,8 @@ jobs:
       run: |
         yarn test
         yarn build
-    - name: Upload to codecov
-      run: bash <(curl -s https://codecov.io/bash)
+    - uses: codecov/codecov-action@v3
+      name: Upload to codecov
   docker-build:
     # Ensure test job passes before pushing image.
     needs: build
