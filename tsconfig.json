@@ -9,6 +9,7 @@
     "forceConsistentCasingInFileNames": true
   },
   "exclude": [
-    "test"
+    "test",
+    "infra"
   ]
 }
