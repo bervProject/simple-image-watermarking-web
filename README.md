@@ -4,6 +4,12 @@ Simple Website to Bring Hidden Watermark into an Image
 
 Version: 2.0.0
 
+## ENV
+
+```
+ALLOWED_CORS=
+```
+
 ## Build Status
 
 | Github Action | Coverage |

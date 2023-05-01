@@ -71,7 +71,7 @@ function home(
 }
 
 const corsOptions = {
-  origin: 'https://siwb-ui.onrender.com',
+  origin: process.env.ALLOWED_CORS || 'https://siwb.berviantoleo.my.id',
 };
 
 const upload = multer({
