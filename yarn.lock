@@ -1247,10 +1247,10 @@
   resolved "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.4.tgz#cd667bcfdd025213aafb7ca5915a932590acdcdc"
   integrity sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==
 
-"@types/response-time@^2.3.5":
-  version "2.3.5"
-  resolved "https://registry.npmjs.org/@types/response-time/-/response-time-2.3.5.tgz#e85ff348caefd0f8d3e8902424c681a59aafc31e"
-  integrity sha512-4ANzp+I3K7sztFFAGPALWBvSl4ayaDSKzI2Bok+WNz+en2eB2Pvk6VCjR47PBXBWOkEg2r4uWpZOlXA5DNINOQ==
+"@types/response-time@^2.3.6":
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/@types/response-time/-/response-time-2.3.6.tgz#1078c95a5780b0b1abe349c9dcd5f7f262fcf970"
+  integrity sha512-TEhk+us1G5la4d6onu9dc1hcCvM12BvLq8fpx89Gb5U85N6EhloKdd/h8gir8WOq6tuw6Kfm//c3uIreT6Q+uA==
   dependencies:
     "@types/express" "*"
     "@types/node" "*"
