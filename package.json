@@ -36,7 +36,7 @@
     "@types/cors": "^2.8.14",
     "@types/express": "^4.17.19",
     "@types/jest": "^27.5.0",
-    "@types/morgan": "^1.9.6",
+    "@types/morgan": "^1.9.7",
     "@types/multer": "^1.4.7",
     "@types/node": "^20.8.6",
     "@types/response-time": "^2.3.6",
