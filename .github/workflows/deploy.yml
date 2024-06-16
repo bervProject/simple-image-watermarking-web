@@ -52,10 +52,10 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 18.x
+      - name: Use Node.js 20.x
         uses: actions/setup-node@v2
         with:
-          node-version: '18.x'
+          node-version: '20.x'
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2 # More information on this action can be found below in the 'AWS Credentials' section
         with:
