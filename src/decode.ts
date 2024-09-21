@@ -20,8 +20,7 @@ String.prototype.binaryToText = function (): string {
 function decode(filePath: string): Promise<string> {
   return new Promise((resolve, reject) => {
     const extractedBin: number[] = [];
-    Jimp
-      .read(filePath)
+    Jimp.read(filePath)
       .then((image) => {
         image.scan(
           0,

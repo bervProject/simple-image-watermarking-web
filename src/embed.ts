@@ -16,8 +16,7 @@ function text2Binary(text: string): string {
 
 function embed(filename: string, mytext: string): Promise<EmbedData> {
   return new Promise((resolve, reject) => {
-    Jimp
-      .read(filename)
+    Jimp.read(filename)
       .then((image) => {
         const myData = text2Binary(mytext);
         const totalData = myData.length;
