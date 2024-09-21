@@ -1,4 +1,4 @@
-import jimp from 'jimp';
+import { Jimp } from 'jimp';
 
 export interface EmbedData {
   data: Buffer;
@@ -16,7 +16,7 @@ function text2Binary(text: string): string {
 
 function embed(filename: string, mytext: string): Promise<EmbedData> {
   return new Promise((resolve, reject) => {
-    jimp
+    Jimp
       .read(filename)
       .then((image) => {
         const myData = text2Binary(mytext);
@@ -50,11 +50,11 @@ function embed(filename: string, mytext: string): Promise<EmbedData> {
             }
             if (x === image.bitmap.width - 1 && y === image.bitmap.height - 1) {
               // image scan finished, do your stuff
-              this.getBufferAsync(image.getMIME())
+              this.getBuffer(image.mime)
                 .then((data) => {
                   resolve({
                     data,
-                    type: image.getMIME(),
+                    type: image.mime ?? '',
                   });
                 })
                 .catch((err) => {
