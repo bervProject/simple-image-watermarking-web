@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2015",
-    "module": "commonjs",
+    "module": "NodeNext",
     "outDir": "./dist",
     "strict": true,
     "allowSyntheticDefaultImports": true,
