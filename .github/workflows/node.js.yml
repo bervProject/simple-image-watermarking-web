@@ -32,7 +32,7 @@ jobs:
       run: |
         yarn test
         yarn build
-    - uses: codecov/codecov-action@v3
+    - uses: codecov/codecov-action@v5
       name: Upload to codecov
   test-infra:
     runs-on: ubuntu-24.04
