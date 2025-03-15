@@ -3994,10 +3994,10 @@ range-parser@~1.2.1:
   resolved "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-rate-limiter-flexible@^5.0.5:
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/rate-limiter-flexible/-/rate-limiter-flexible-5.0.5.tgz#4b7df3cbda7e589704b333be0703d5f159f769d5"
-  integrity sha512-+/dSQfo+3FYwYygUs/V2BBdwGa9nFtakDwKt4l0bnvNB53TNT++QSFewwHX9qXrZJuMe9j+TUaU21lm5ARgqdQ==
+rate-limiter-flexible@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/rate-limiter-flexible/-/rate-limiter-flexible-6.1.0.tgz#2b4d69b05d0924e8a74d857f18a5be4b454a0fc4"
+  integrity sha512-CqdTzIj9srODfTP1QKZyHn9BSq4SbOel9+Mun1Qt+SmYSgXDEYPa18yKKHTt5Q+4eqCK+psSLpCuYsbAu5MwGA==
 
 raw-body@2.5.2:
   version "2.5.2"
