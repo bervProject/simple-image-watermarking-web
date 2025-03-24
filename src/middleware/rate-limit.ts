@@ -6,7 +6,6 @@ const rateLimiter = new RateLimiterMemory({
   duration: 1, // per 1 second by IP
 });
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 const rateLimiterMiddleware = (
   req: Request,
   res: Response,
