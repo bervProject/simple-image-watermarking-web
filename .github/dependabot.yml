@@ -9,6 +9,9 @@ updates:
     time: "08:00"
     timezone: Asia/Jakarta
   open-pull-requests-limit: 100
+  groups:
+    development-dependencies:
+        dependency-type: "development"
 - package-ecosystem: npm
   directory: "/infra"
   schedule:
@@ -17,6 +20,9 @@ updates:
     time: "08:00"
     timezone: Asia/Jakarta
   open-pull-requests-limit: 100
+  groups:
+    development-dependencies:
+        dependency-type: "development"
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
