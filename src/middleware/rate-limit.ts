@@ -12,7 +12,7 @@ const rateLimiterMiddleware = (
   next: NextFunction,
 ): void => {
   rateLimiter
-    .consume(req.ip)
+    .consume(req.ip ?? "guest")
     .then(() => {
       next();
     })
