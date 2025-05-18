@@ -15,7 +15,7 @@ const port = process.env.PORT || 8888;
 
 function embed(req: Request, res: Response, next: NextFunction) {
   const file = req.file;
-  const message = req.body.message;
+  const message = req.body?.message;
   if (!file) {
     res.status(400).send({
       message: 'File request is missing',
@@ -63,12 +63,12 @@ function extract(req: Request, res: Response, next: NextFunction) {
 }
 
 function home(
-  req: express.Request,
-  res: express.Response,
+  req: Request,
+  res: Response,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  next: express.NextFunction,
+  next: NextFunction,
 ) {
-  return res.send({ message: 'Welcome to SIWB!' });
+  res.status(200).send({ message: 'Welcome to SIWB!' });
 }
 
 const corsOptions = {
