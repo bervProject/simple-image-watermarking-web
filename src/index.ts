@@ -68,7 +68,7 @@ function home(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   next: NextFunction,
 ) {
-  return res.send({ message: 'Welcome to SIWB!' });
+  res.status(200).send({ message: 'Welcome to SIWB!' });
 }
 
 const corsOptions = {
