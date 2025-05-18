@@ -63,10 +63,10 @@ function extract(req: Request, res: Response, next: NextFunction) {
 }
 
 function home(
-  req: express.Request,
-  res: express.Response,
+  req: Request,
+  res: Response,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  next: express.NextFunction,
+  next: NextFunction,
 ) {
   return res.send({ message: 'Welcome to SIWB!' });
 }
