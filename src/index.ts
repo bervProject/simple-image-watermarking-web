@@ -15,7 +15,7 @@ const port = process.env.PORT || 8888;
 
 function embed(req: Request, res: Response, next: NextFunction) {
   const file = req.file;
-  const message = req.body.message;
+  const message = req.body?.message;
   if (!file) {
     res.status(400).send({
       message: 'File request is missing',
