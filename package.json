@@ -27,7 +27,7 @@
     "express": "^5.1.0",
     "helmet": "^8.1.0",
     "jimp": "^1.6.0",
-    "morgan": "^1.10.0",
+    "morgan": "^1.10.1",
     "multer": "^2.0.2",
     "rate-limiter-flexible": "^7.1.1",
     "response-time": "^2.3.4"
