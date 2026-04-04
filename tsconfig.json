@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es2022",
+    "lib": ["es2022"],
     "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "./",
     "outDir": "./dist",
     "strict": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": [
     "test",
