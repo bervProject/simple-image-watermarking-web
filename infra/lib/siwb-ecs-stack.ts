@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as ecr from 'aws-cdk-lib/aws-ecr';
+import * as ecs from 'aws-cdk-lib/aws-ecs';
 import * as iam from 'aws-cdk-lib/aws-iam';
 
 export class SiwbEcsStack extends cdk.Stack {
@@ -32,21 +33,19 @@ export class SiwbEcsStack extends cdk.Stack {
       assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com'),
     });
 
-    const cfnResource = new cdk.CfnResource(this, 'siwb-express-gateway', {
-      type: 'AWS::ECS::ExpressGatewayService',
-      properties: {
-        ExecutionRoleArn: executionRole.roleArn,
-        InfrastructureRoleArn: infrastructureRole.roleArn,
-        TaskRoleArn: taskRole.roleArn,
-        PrimaryContainer: {
-          Image: `${repo.repositoryUri}:${imageTag.valueAsString}`,
-          Port: 8888,
+    const cfnResource = new ecs.CfnExpressGatewayService(this, 'siwb-express-gateway', {
+      executionRoleArn: executionRole.roleArn,
+      infrastructureRoleArn: infrastructureRole.roleArn,
+      taskRoleArn: taskRole.roleArn,
+      primaryContainer: {
+          image: `${repo.repositoryUri}:${imageTag.valueAsString}`,
+          containerPort: 8888,
         },
       },
-    });
+    );
 
     new cdk.CfnOutput(this, 'output-siwb-ecs-url', {
-      value: cfnResource.getAtt('ServiceUrl').toString(),
+      value: cfnResource.getAtt('Endpoint').toString(),
     });
   }
 }
