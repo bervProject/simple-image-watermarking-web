@@ -52,10 +52,10 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7
-      - name: Use Node.js 22.x
+      - name: Use Node.js 24.x
         uses: actions/setup-node@v7
         with:
-          node-version: '22.x'
+          node-version: '24.x'
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v6 # More information on this action can be found below in the 'AWS Credentials' section
         with:
@@ -76,5 +76,6 @@ jobs:
         run: |
           npm install
           cdk deploy SiwbStack --parameters "imageTag=sha-${{ github.sha }}" --require-approval never
+          cdk deploy SiwbEcsStack --parameters "imageTag=sha-${{ github.sha }}" --require-approval never
 
 

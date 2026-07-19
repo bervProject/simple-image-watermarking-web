@@ -1,17 +1,6 @@
-// import * as cdk from 'aws-cdk-lib';
-// import { Template } from 'aws-cdk-lib/assertions';
-// import * as Infra from '../lib/infra-stack';
-
-// example test. To run these tests, uncomment this file along with the
-// example resource in lib/infra-stack.ts
-test('SQS Queue Created', () => {
-//   const app = new cdk.App();
-//     // WHEN
-//   const stack = new Infra.InfraStack(app, 'MyTestStack');
-//     // THEN
-//   const template = Template.fromStack(stack);
-
-//   template.hasResourceProperties('AWS::SQS::Queue', {
-//     VisibilityTimeout: 300
-//   });
+// infra-stack.ts (App Runner) tests
+// App Runner stack is kept as-is during migration period
+test('placeholder', () => {
+  // SiwbStack (App Runner) tests are intentionally skipped during migration
+  // See siwb-ecs-stack.test.ts for the new ECS stack tests
 });

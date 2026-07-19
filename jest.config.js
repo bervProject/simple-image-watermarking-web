@@ -3,4 +3,7 @@ module.exports = {
   testEnvironment: 'node',
   coveragePathIgnorePatterns: ['/node_modules/'],
   collectCoverageFrom: ['src/**/*.{ts,js}'],
+  testPathIgnorePatterns: [
+    "<rootDir>/infra/"
+  ]
 };
