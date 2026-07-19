@@ -20,7 +20,7 @@
     "lint": "eslint \"src/**/*.{js,ts}\" \"test/**/*.{js,ts}\"",
     "fix-lint": "eslint \"src/**/*.{js,ts}\" \"test/**/*.{js,ts}\" --quiet --fix",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "test": "cross-env NODE_ENV=test jest --testTimeout=60000 --coverage --forceExit --detectOpenHandles --verbose"
+    "test": "cross-env NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js --testTimeout=60000 --coverage --forceExit --detectOpenHandles --verbose"
   },
   "dependencies": {
     "cors": "^2.8.6",
