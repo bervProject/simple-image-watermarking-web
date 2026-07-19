@@ -27,6 +27,11 @@ export class SiwbEcsStack extends cdk.Stack {
 
     const infrastructureRole = new iam.Role(this, 'infrastructureRole', {
       assumedBy: new iam.ServicePrincipal('ecs.amazonaws.com'),
+      managedPolicies: [
+        iam.ManagedPolicy.fromAwsManagedPolicyName(
+          'service-role/AmazonECSInfrastructureRoleforExpressGatewayServices'
+        ),
+      ],
     });
 
     const taskRole = new iam.Role(this, 'taskRole', {
