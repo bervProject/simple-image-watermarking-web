@@ -2,7 +2,6 @@
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { SiwbRepoStack } from '../lib/siwb-repo-stack';
-import { SiwbStack } from '../lib/infra-stack';
 import { SiwbEcsStack } from '../lib/siwb-ecs-stack';
 
 const app = new cdk.App();
