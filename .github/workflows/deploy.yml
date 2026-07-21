@@ -66,16 +66,10 @@ jobs:
         run: |
           npm install -g aws-cdk
           cdk doctor
-      - name: Prepare App Runner
-        uses: bervProject/prepare-apprunner-action@0.1.5
-        with:
-          arn: ${{ secrets.ARN }}
-          region: 'ap-southeast-1'
       - name: Deploy Infra
         working-directory: 'infra'
         run: |
           npm install
-          cdk deploy SiwbStack --parameters "imageTag=sha-${{ github.sha }}" --require-approval never
           cdk deploy SiwbEcsStack --parameters "imageTag=sha-${{ github.sha }}" --require-approval never
 
 
