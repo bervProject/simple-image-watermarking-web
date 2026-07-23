@@ -45,16 +45,16 @@ export class SiwbEcsStack extends cdk.Stack {
       memory: '512',
       cpu: '256',
       primaryContainer: {
-          image: `${repo.repositoryUri}:${imageTag.valueAsString}`,
-          containerPort: 8888,
-        },
+        image: `${repo.repositoryUri}:${imageTag.valueAsString}`,
+        containerPort: 8888,
+      },
       scalingTarget: {
         autoScalingMetric: 'REQUEST_COUNT_PER_TARGET',
         autoScalingTargetValue: 20,
         minTaskCount: 0,
         maxTaskCount: 3,
       },
-    );
+    });
 
     new cdk.CfnOutput(this, 'output-siwb-ecs-url', {
       value: cfnResource.getAtt('Endpoint').toString(),
