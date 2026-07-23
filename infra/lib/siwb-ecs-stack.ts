@@ -42,12 +42,17 @@ export class SiwbEcsStack extends cdk.Stack {
       executionRoleArn: executionRole.roleArn,
       infrastructureRoleArn: infrastructureRole.roleArn,
       taskRoleArn: taskRole.roleArn,
-      memory: '1024',
-      cpu: '512',
+      memory: '512',
+      cpu: '256',
       primaryContainer: {
           image: `${repo.repositoryUri}:${imageTag.valueAsString}`,
           containerPort: 8888,
         },
+      scalingTarget: {
+        autoScalingMetric: 'REQUEST_COUNT_PER_TARGET',
+        autoScalingTargetValue: 20,
+        minTaskCount: 0,
+        maxTaskCount: 3,
       },
     );
 
