@@ -38,26 +38,26 @@ export class SiwbEcsStack extends cdk.Stack {
       assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com'),
     });
 
-    const cfnResource = new ecs.CfnExpressGatewayService(this, 'siwb-express-gateway', {
-      executionRoleArn: executionRole.roleArn,
-      infrastructureRoleArn: infrastructureRole.roleArn,
-      taskRoleArn: taskRole.roleArn,
-      memory: '512',
-      cpu: '256',
-      primaryContainer: {
-        image: `${repo.repositoryUri}:${imageTag.valueAsString}`,
-        containerPort: 8888,
-      },
-      scalingTarget: {
-        autoScalingMetric: 'REQUEST_COUNT_PER_TARGET',
-        autoScalingTargetValue: 20,
-        minTaskCount: 0,
-        maxTaskCount: 3,
-      },
-    });
+    // const cfnResource = new ecs.CfnExpressGatewayService(this, 'siwb-express-gateway', {
+    //   executionRoleArn: executionRole.roleArn,
+    //   infrastructureRoleArn: infrastructureRole.roleArn,
+    //   taskRoleArn: taskRole.roleArn,
+    //   memory: '512',
+    //   cpu: '256',
+    //   primaryContainer: {
+    //     image: `${repo.repositoryUri}:${imageTag.valueAsString}`,
+    //     containerPort: 8888,
+    //   },
+    //   scalingTarget: {
+    //     autoScalingMetric: 'REQUEST_COUNT_PER_TARGET',
+    //     autoScalingTargetValue: 20,
+    //     minTaskCount: 0,
+    //     maxTaskCount: 3,
+    //   },
+    // });
 
-    new cdk.CfnOutput(this, 'output-siwb-ecs-url', {
-      value: cfnResource.getAtt('Endpoint').toString(),
-    });
+    // new cdk.CfnOutput(this, 'output-siwb-ecs-url', {
+    //   value: cfnResource.getAtt('Endpoint').toString(),
+    // });
   }
 }
