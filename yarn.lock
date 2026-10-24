@@ -4341,10 +4341,10 @@ range-parser@^1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-rate-limiter-flexible@^11.2.2:
-  version "11.2.2"
-  resolved "https://registry.yarnpkg.com/rate-limiter-flexible/-/rate-limiter-flexible-11.2.2.tgz#ef392bac49d4514bca9adf052e3a9a40413ea165"
-  integrity sha512-n6M+msT0OWdril3PgkAjatDME2BEDhf8nBx4lJj9pMFQVcN6ldXtZvTX3nZdFqqX5utQ7kCUzq7LfyfmA2wglw==
+rate-limiter-flexible@^11.2.3:
+  version "11.2.3"
+  resolved "https://registry.yarnpkg.com/rate-limiter-flexible/-/rate-limiter-flexible-11.2.3.tgz#81be017f6adfa6a305422d3fd11f04e0e2ff9d3d"
+  integrity sha512-w4HX4toAsEbu1VksOauZwI9d6URb6/4WqJJ5Hg1bESihMt2KJfQ2iTwvDkhIg+y2HetLh65DGu/8xIkUz/xNPA==
 
 raw-body@^3.0.2:
   version "3.0.2"
